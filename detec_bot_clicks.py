@@ -1,10 +1,10 @@
 # read data from the ongage_activity table in SQL Server
 df = spark.read \
     .format("jdbc") \
-    .option("url", "jdbc:sqlserver://20.186.175.1;databaseName=DataOps_Data") \
-    .option("dbtable", "POCN.Ongage.Activity") \
-    .option("user", "pocnadmin") \
-    .option("password", "CarmenMazzatta123") \
+    .option("url", "jdbc:sqlserver://XXXX;databaseName=DataOps_Data") \
+    .option("dbtable", "XXX") \
+    .option("user", "XXX") \
+    .option("password", "XXXX") \
     .option("encrypt", "true") \
     .option("trustServerCertificate", "true") \
     .load()
@@ -223,11 +223,11 @@ final_df.write.format("delta").mode("append").saveAsTable("pocn_data.silver.onga
 
 df = spark.read.table('pocn_data.silver.ongage_activity_anomaly_latest')
 df.write.format("sqlserver") \
-    .option("host", "20.186.175.1") \
+    .option("host", "XXX") \
     .option('trustServerCertificate', 'true') \
     .option('encrypt', 'true') \
-    .option("user", "pocnadmin") \
-    .option("password", "CarmenMazzatta123") \
+    .option("user", "XXXX") \
+    .option("password", "XXX") \
     .option("database", "DataOps_Data") \
     .option("dbtable", "ongage_activity_anomaly") \
     .mode("overwrite") \
